@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply from: '../config/quality/quality.gradle'
-apply plugin: 'com.github.dcendents.android-maven'
+apply from: '../versions.gradle'
+apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -8,9 +10,9 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'folioreader'
 
-    publishedGroupId = 'com.folioreader'
+    publishedGroupId = 'com.folioreadermagic'
     libraryName = 'FolioReader'
-    artifact = 'folioreader'
+    artifact = 'folioreadermagic'
 
     libraryDescription = 'An epub reader for Android'
 
@@ -76,7 +78,7 @@ android {
     }
 }
 
-apply from: '../folioreader/bintray/installv1.gradle'
+//apply from: '../folioreader/bintray/installv1.gradle'
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
@@ -118,5 +120,6 @@ dependencies {
 
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+
 }
 apply from: '../folioreader/bintray/bintrayv1.gradle'
